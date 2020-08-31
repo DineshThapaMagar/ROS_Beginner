@@ -214,6 +214,14 @@ add_executable(listener src/talker_listener/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener beginner_tutorials_generate_messages_cpp)
 
+add_executable(add_two_ints_server src/add_two_ints/add_two_ints_server.cpp)
+target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
+add_dependencies(add_two_ints_server beginner_tutorials_gencpp)
+
+add_executable(add_two_ints_client src/add_two_ints/add_two_ints_client.cpp)
+target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
+add_dependencies(add_two_ints_client beginner_tutorials_gencpp)
+
 # For python
 catkin_install_python(PROGRAMS scripts/talker_listener/talker.py
  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -223,3 +231,6 @@ catkin_install_python(PROGRAMS scripts/talker_listener/listener.py
  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
+catkin_install_python(PROGRAMS scripts/add_two_ints/add_two_ints_server.py scripts/add_two_ints/add_two_ints_client.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
